@@ -1,0 +1,30 @@
+# DiscreteStack's maximum tier. Limits, modalities, and reasoning behavior verified via
+# https://setup.discretestack.com (accessed 2026-09-17): the surface accepts exactly one
+# reasoning effort string, "medium" (passed as reasoning_effort); callers cannot select
+# another level, so this entry advertises a single-value effort option. Underlying lab
+# models rotate as newer open-weight releases are validated, so no fixed base model is
+# claimed.
+name = "DiscreteStack Stable Max"
+description = "DiscreteStack's maximum-capability tier for the hardest coding, research, and long-horizon agent workloads"
+release_date = "2026-06-12"
+last_updated = "2026-09-17"
+attachment = true
+reasoning = true
+temperature = false
+tool_call = true
+open_weights = true
+
+[limit]
+context = 256_000
+output = 32_000
+
+[modalities]
+input = ["text", "image"]
+output = ["text"]
+
+[[reasoning_options]]
+type = "effort"
+values = ["medium"]
+
+[interleaved]
+field = "reasoning_content"

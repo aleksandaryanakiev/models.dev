@@ -1,0 +1,30 @@
+# DiscreteStack's balanced default tier. Limits, modalities, and effort control verified
+# via https://setup.discretestack.com (accessed 2026-09-17): reasoning effort is passed
+# as reasoning_effort and accepts low | medium | high (medium default). Note these are
+# DiscreteStack's wire values, not the Zhipu first-party ladder (low/high/max). Underlying
+# lab models rotate as newer open-weight releases are validated, so no fixed base model
+# is claimed.
+name = "DiscreteStack Stable"
+description = "DiscreteStack's balanced default tier for everyday coding, reasoning, and agent tasks"
+release_date = "2026-05-01"
+last_updated = "2026-09-17"
+attachment = true
+reasoning = true
+temperature = true
+tool_call = true
+open_weights = true
+
+[limit]
+context = 1_000_000
+output = 32_000
+
+[modalities]
+input = ["text", "image"]
+output = ["text"]
+
+[[reasoning_options]]
+type = "effort"
+values = ["low", "medium", "high"]
+
+[interleaved]
+field = "reasoning_content"
